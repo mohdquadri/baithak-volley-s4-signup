@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Baithak Volley Dallas Tournament Season 4</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --ink: #f8fafc;
+      --muted: #94a3b8;
+      --line: #1f2937;
+      --accent: #f59e0b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, Segoe UI, Arial, sans-serif;
+      background:
+        radial-gradient(900px 400px at 10% -10%, #1e3a5f 0%, transparent 50%),
+        radial-gradient(700px 300px at 100% 0%, #3f2d14 0%, transparent 45%),
+        var(--bg);
+      color: var(--ink);
+    }
+    .wrap { max-width: 720px; margin: 32px auto; padding: 0 16px 48px; }
+    .card {
+      background: rgba(17, 24, 39, 0.92);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,.35);
+    }
+    .hero {
+      padding: 28px 28px 18px;
+      background: linear-gradient(180deg, rgba(245,158,11,.12), transparent);
+      border-bottom: 1px solid var(--line);
+    }
+    h1 { margin: 0 0 8px; font-size: 1.55rem; line-height: 1.25; }
+    .badge {
+      display: inline-block;
+      font-size: 12px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: #111827;
+      background: var(--accent);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .meta { color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .meta a { color: #93c5fd; }
+    .price { margin-top: 14px; display: flex; gap: 10px; flex-wrap: wrap; }
+    .chip {
+      background: #0b1220;
+      border: 1px solid #334155;
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-size: 13px;
+    }
+    form { padding: 22px 28px 28px; display: grid; gap: 14px; }
+    label { font-size: 13px; font-weight: 600; display: block; margin-bottom: 6px; }
+    input, select {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #334155;
+      background: #0b1220;
+      color: var(--ink);
+      font-size: 15px;
+    }
+    input:focus, select:focus {
+      outline: 2px solid rgba(245,158,11,.45);
+      border-color: var(--accent);
+    }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .hint { color: var(--muted); font-size: 12px; margin-top: 5px; }
+    .paybox {
+      border: 1px solid #334155;
+      background: #0b1220;
+      border-radius: 14px;
+      padding: 14px;
+    }
+    .paybox strong { color: var(--accent); }
+    .check { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; }
+    .check input { width: auto; margin-top: 3px; }
+    button {
+      border: 0;
+      background: var(--accent);
+      color: #111827;
+      font-weight: 800;
+      font-size: 16px;
+      padding: 13px 16px;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+    button:disabled { opacity: .6; cursor: wait; }
+    .ok, .err {
+      display: none;
+      margin: 0 28px 28px;
+      padding: 16px;
+      border-radius: 12px;
+    }
+    .ok {
+      background: rgba(34,197,94,.12);
+      border: 1px solid rgba(34,197,94,.35);
+      color: #bbf7d0;
+    }
+    .err {
+      background: rgba(239,68,68,.12);
+      border: 1px solid rgba(239,68,68,.35);
+      color: #fecaca;
+    }
+    @media (max-width: 640px) {
+      .row { grid-template-columns: 1fr; }
+      .hero, form { padding-left: 18px; padding-right: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="hero">
+        <div class="badge">Sign-up sheet</div>
+        <h1>Baithak Volley Dallas Tournament Season 4</h1>
+        <div class="meta">
+          <div><strong>Date:</strong> Saturday, Oct 6 &nbsp;·&nbsp; <strong>Time:</strong> 5:00 PM – 11:00 PM</div>
+          <div><strong>Venue:</strong> Mad Sand —
+            <a href="https://maps.google.com/?q=2517+Summit+Avenue,+Plano,+TX+75074" target="_blank" rel="noopener">
+              2517 Summit Avenue, Plano, TX 75074
+            </a>
+          </div>
+          <div>Dinner will be served, inshaAllah.</div>
+        </div>
+        <div class="price">
+          <div class="chip">Price: <strong>$40 / person</strong></div>
+          <div class="chip">Zelle: <strong>847-809-6817</strong></div>
+          <div class="chip">Memo: <strong>First Last – Volley S4</strong></div>
+        </div>
+      </div>
+
+      <form id="signup">
+        <div class="row">
+          <div>
+            <label for="first">First name *</label>
+            <input id="first" name="firstName" required autocomplete="given-name" />
+          </div>
+          <div>
+            <label for="last">Last name *</label>
+            <input id="last" name="lastName" required autocomplete="family-name" />
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label for="email">Email *</label>
+            <input id="email" name="email" type="email" required autocomplete="email" />
+          </div>
+          <div>
+            <label for="phone">Phone number *</label>
+            <input id="phone" name="phone" type="tel" required placeholder="847-555-1234" autocomplete="tel" />
+          </div>
+        </div>
+        <div>
+          <label for="skill">Volleyball skill level *</label>
+          <select id="skill" name="skillLevel" required>
+            <option value="">Choose</option>
+            <option>Beginner</option>
+            <option>Beginner Plus</option>
+            <option>Intermediate</option>
+            <option>Intermediate Plus</option>
+            <option>Advance</option>
+            <option>Advance Plus</option>
+          </select>
+        </div>
+        <div>
+          <label for="note">Zelle memo used *</label>
+          <input id="note" name="zelleMemo" required placeholder="e.g. Aisha Khan – Volley S4" />
+          <div class="hint">Use this exact memo when you send $40 so we can match your payment.</div>
+        </div>
+        <div class="paybox">
+          <div style="margin-bottom:8px"><strong>Pay $40 via Zelle to 847-809-6817</strong> before submitting.</div>
+          <label class="check">
+            <input type="checkbox" id="paid" name="zelleSent" required />
+            <span>Yes — I sent $40 by Zelle to 847-809-6817 with my name in the memo.</span>
+          </label>
+        </div>
+        <button type="submit" id="submitBtn">Submit registration</button>
+      </form>
+      <div class="ok" id="ok"></div>
+      <div class="err" id="err"></div>
+    </div>
+  </div>
+
+  <script>
+    // Paste your Apps Script web app URL after you deploy the script in your Google Sheet
+    const SHEET_WEB_APP_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+
+    const form = document.getElementById("signup");
+    const ok = document.getElementById("ok");
+    const err = document.getElementById("err");
+    const btn = document.getElementById("submitBtn");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      ok.style.display = "none";
+      err.style.display = "none";
+      if (!form.reportValidity()) return;
+
+      if (!SHEET_WEB_APP_URL || SHEET_WEB_APP_URL.includes("PASTE_YOUR_")) {
+        err.style.display = "block";
+        err.textContent = "This form is not connected yet. The organizer needs to paste the Google Apps Script web app URL.";
+        return;
+      }
+
+      const data = Object.fromEntries(new FormData(form).entries());
+      data.zelleSent = "Yes";
+      data.submittedAt = new Date().toISOString();
+
+      btn.disabled = true;
+      btn.textContent = "Submitting…";
+      try {
+        await fetch(SHEET_WEB_APP_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify(data)
+        });
+        form.reset();
+        ok.style.display = "block";
+        ok.innerHTML = "Thanks, " + data.firstName + ". Check your email for confirmation. Your spot is recorded after we match the $40 Zelle to 847-809-6817.";
+      } catch (error) {
+        err.style.display = "block";
+        err.textContent = "Could not submit. Please try again or text the organizer.";
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "Submit registration";
+      }
+    });
+  </script>
+</body>
+</html>
