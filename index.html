@@ -161,6 +161,14 @@
           </div>
         </div>
         <div>
+          <label for="captain">Do you want to be Captain? *</label>
+          <select id="captain" name="captain" required>
+            <option value="">Choose</option>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+        <div>
           <label for="skill">Volleyball skill level *</label>
           <select id="skill" name="skillLevel" required>
             <option value="">Choose</option>
@@ -193,22 +201,18 @@
 
   <script>
     const SHEET_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbw4cRLapyBDj2IUokheDspNjPceWC1KUeP_84Yz97_d8qS-OQ3H90SRN66PCLAtzJ5C/exec";
-
     const form = document.getElementById("signup");
     const ok = document.getElementById("ok");
     const err = document.getElementById("err");
     const btn = document.getElementById("submitBtn");
-
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
       ok.style.display = "none";
       err.style.display = "none";
       if (!form.reportValidity()) return;
-
       const data = Object.fromEntries(new FormData(form).entries());
       data.zelleSent = "Yes";
       data.submittedAt = new Date().toISOString();
-
       btn.disabled = true;
       btn.textContent = "Submitting…";
       try {
