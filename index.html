@@ -192,7 +192,7 @@
   </div>
 
   <script>
-    const SHEET_WEB_APP_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+    const SHEET_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbw4cRLapyBDj2IUokheDspNjPceWC1KUeP_84Yz97_d8qS-OQ3H90SRN66PCLAtzJ5C/exec";
 
     const form = document.getElementById("signup");
     const ok = document.getElementById("ok");
@@ -204,12 +204,6 @@
       ok.style.display = "none";
       err.style.display = "none";
       if (!form.reportValidity()) return;
-
-      if (!SHEET_WEB_APP_URL || SHEET_WEB_APP_URL.includes("PASTE_YOUR_")) {
-        err.style.display = "block";
-        err.textContent = "This form is not connected yet. The organizer needs to paste the Google Apps Script web app URL.";
-        return;
-      }
 
       const data = Object.fromEntries(new FormData(form).entries());
       data.zelleSent = "Yes";
